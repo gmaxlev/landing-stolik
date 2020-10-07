@@ -1,0 +1,26 @@
+@keyframes form-send-error-show {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-send-error {
+  margin-top: 20px;
+  color: red;
+  display: none;
+  animation: form-send-error-show 1s;
+  .svg-sprite {
+    margin-right: 15px;
+    width: 18px;
+    height: 18px;
+  }
+}
+.form-send-error_show {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,28 @@
+.excursion {
+  padding: 0 170px;
+  @include media-breakpoint-down(sm) {
+    padding: 0 40px;
+  }
+}
+
+.excursion__item {
+  position: relative;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.14);
+  border-radius: 20px;
+  transition: box-shadow 0.3s;
+  &:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.14);
+  }
+  &::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}
+#excursion-slider {
+  overflow: visible;
+}

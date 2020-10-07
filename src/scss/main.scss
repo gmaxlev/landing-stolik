@@ -1,0 +1,39 @@
+// Переменные (breakpoints, цвета, шрифты и т. д.)
+@import "./variables";
+
+// Шрифты
+@import "./modules/fonts";
+
+// Медиа запросы
+@import "./modules/breakpoints";
+
+// Вспомагательные классы
+@import "./modules/responsive";
+
+// Сброс стандартных стилей (normalize.css)
+@import "./vendor/normalize";
+
+// PNG Спрайты
+@import "./modules/png-sprites";
+
+// Глобальные стили
+@import "./global";
+
+// Блоки (БЭМ)
+@import "./partials/wrapper";
+@import "./partials/container";
+@import "./partials/modal";
+@import "./partials/modal-window";
+@import "./partials/form-send-success";
+@import "./partials/form-send-error";
+@import "./partials/input-text";
+@import "./partials/modal-form";
+@import "./partials/button";
+@import "./partials/input-form-error";
+@import "./partials/header";
+@import "./partials/intro";
+@import "./partials/store";
+@import "./partials/promo";
+@import "./partials/excursion";
+@import "./partials/reviews";
+@import "./partials/footer";

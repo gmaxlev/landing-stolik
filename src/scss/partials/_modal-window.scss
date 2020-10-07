@@ -1,0 +1,48 @@
+.modal-window {
+  background-color: #fff;
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.modal-window__header {
+  margin-bottom: 6px;
+}
+.modal-window__subheader {
+  margin-bottom: 20px;
+}
+.modal-window__close {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  &:hover {
+    .svg-sprite {
+      transform: rotate(180deg);
+      fill: #000;
+    }
+  }
+  .svg-sprite {
+    width: 13px;
+    height: 13px;
+    transition: transform 0.3s, color 0.3s;
+    fill: #636363;
+  }
+  @include media-breakpoint-down(xs) {
+    width: 30px;
+    height: 30px;
+    .svg-sprite {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Gilroy Medium Italic";
+    src: url("../fonts/Gilroy-MediumItalic.eot"); /* IE9 */
+    src: url("../fonts/Gilroy-MediumItalic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/Gilroy-MediumItalic.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/Gilroy-MediumItalic.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../fonts/Gilroy-MediumItalic.svg#Gilroy Medium Italic") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+

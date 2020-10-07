@@ -1,0 +1,104 @@
+%svg-common {
+	background: url("svg/sprite.view.svg") no-repeat;
+}
+
+.svg-svgsprite_chair {
+	@extend %svg-common;
+	background-position: 65.09635974304068% 93.72199170124482%;
+}
+
+.svg-svgsprite_chair-dims {
+	width: 30px;
+	height: 30px;
+}
+
+.svg-svgsprite_checkedm {
+	@extend %svg-common;
+	background-position: 71.06382978723404% 92.56967213114754%;
+}
+
+.svg-svgsprite_checkedm-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-svgsprite_close {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.svg-svgsprite_close-dims {
+	width: 512px;
+	height: 512px;
+}
+
+.svg-svgsprite_error {
+	@extend %svg-common;
+	background-position: 99.94924452426503% 0;
+}
+
+.svg-svgsprite_error-dims {
+	width: 451.74px;
+	height: 451.74px;
+}
+
+.svg-svgsprite_instagram {
+	@extend %svg-common;
+	background-position: 73.61702127659575% 92.56967213114754%;
+}
+
+.svg-svgsprite_instagram-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-svgsprite_natural_food {
+	@extend %svg-common;
+	background-position: 54.93562231759657% 94.1125%;
+}
+
+.svg-svgsprite_natural_food-dims {
+	width: 32px;
+	height: 32px;
+}
+
+.svg-svgsprite_phone {
+	@extend %svg-common;
+	background-position: 76.17021276595744% 92.56967213114754%;
+}
+
+.svg-svgsprite_phone-dims {
+	width: 24px;
+	height: 24px;
+}
+
+.svg-svgsprite_ruler {
+	@extend %svg-common;
+	background-position: 58.36909871244635% 94.1125%;
+}
+
+.svg-svgsprite_ruler-dims {
+	width: 32px;
+	height: 32px;
+}
+
+.svg-svgsprite_telegram {
+	@extend %svg-common;
+	background-position: 61.802575107296136% 94.1125%;
+}
+
+.svg-svgsprite_telegram-dims {
+	width: 32px;
+	height: 32px;
+}
+
+.svg-svgsprite_viber {
+	@extend %svg-common;
+	background-position: 68.30835117773019% 93.72199170124482%;
+}
+
+.svg-svgsprite_viber-dims {
+	width: 30px;
+	height: 30px;
+}
+

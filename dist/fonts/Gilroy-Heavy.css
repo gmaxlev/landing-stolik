@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Gilroy Heavy";
+    src: url("../fonts/Gilroy-Heavy.eot"); /* IE9 */
+    src: url("../fonts/Gilroy-Heavy.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/Gilroy-Heavy.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/Gilroy-Heavy.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../fonts/Gilroy-Heavy.svg#Gilroy Heavy") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+

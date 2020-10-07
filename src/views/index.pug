@@ -1,0 +1,469 @@
+include templates/mixins.pug
+
+<!doctype html>
+html(lang="ru")
+
+    head
+
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        
+        title Title
+
+        link(rel="stylesheet", href="css/main.css")
+        link(rel="stylesheet", href="css/animate.min.css")
+        link(rel="stylesheet", href="vendor/fancybox/jquery.fancybox.min.css")
+        link(rel="stylesheet", href="vendor/swiper/swiper.min.css")
+        
+        script(src="vendor/jquery.min.js")
+        script(src="vendor/jquery.validate.min.js")
+        script(src="vendor/axios.min.js")
+        script(src="vendor/jquery.mask.min.js")
+        script(src="vendor/wow.min.js")
+        script(src="vendor/fancybox/jquery.fancybox.min.js")
+        script(src="vendor/swiper/swiper.min.js")
+
+
+        // ===================
+        // LOADING SVG SPRITES
+        // ===================
+        script.
+            $(document).ready(function() {
+                var req = new XMLHttpRequest();
+                req.onload = function (e) {
+                    var svg = document.implementation.createHTMLDocument( '' );
+                    svg.body.innerHTML = e.target.response.replace('<svg ', '<svg style="display: none"');
+                    document.body.appendChild(svg.body.firstElementChild);
+                    svg = null;
+                };
+                req.open('GET', './img/sprite.defs.svg', true);
+                req.responseType = 'text';
+                req.send();
+            });
+        // =======================
+        // END LOADING SVG SPRITES
+        // =======================
+            
+    body
+        
+        .wrapper
+
+            // =================
+            // МОДАЛЬНАЯ ФОРМА 1
+            // =================
+            .modal(data-is-modal)#modal-1
+                .modal__window
+                    .modal__content
+                        .modal-window
+                            .modal-window__header Заполните форму
+                            .modal-window__subheader Мы свяжемся с вами в ближайшее время
+                            form.modal-form(data-form-type="1" name="Форма №1")
+                                .modal-form__input
+                                    .input-text
+                                        input(type="text", name="name", placeholder="Ваше имя")
+                                .modal-form__input
+                                    .input-text
+                                        input(type="text", name="phone", placeholder="Ваш номер телефона").phone-mask
+                                .modal-form__input
+                                    .input-text
+                                        input(type="text", name="email", placeholder="Ваш e-mail")
+                                .modal-form__act
+                                    button.button Зарегистрироваться
+                                .form-send-error
+                                    +svg-sprite('svgsprite_error', 'svg-sprite')
+                                    span Ошибка. Не удалось отправить данные. <br>
+                                        span.form-send-error__text
+                                .form-send-success
+                                    +svg-sprite('svgsprite_phone', 'svg-sprite')
+                                    span Спасибо!<br> Ожидайте наш звонок.
+                                    .form-send-success__params
+                        .modal-window__close(data-modal-close)
+                            +svg-sprite('svgsprite_close', 'svg-sprite')
+            // =====================
+            // END МОДАЛЬНАЯ ФОРМА 2
+            // =====================
+
+            // ======
+            // HEADER
+            // ======
+            .container
+                .header
+                    .header__logo
+                        img(src="img/logo.png", alt="")
+                    .header__msg
+                        a(href="")
+                            +svg-sprite('svgsprite_viber', 'svg-sprite')
+                        a(href="")
+                            +svg-sprite('svgsprite_telegram', 'svg-sprite')
+                        a(href="")
+                            +svg-sprite('svgsprite_instagram', 'svg-sprite')
+                    .header__phones
+                        a(href="tel:0983773747")
+                            +svg-sprite('svgsprite_phone', 'svg-sprite')
+                            span 0983773747
+                        a(href="tel:0983773747")
+                            +svg-sprite('svgsprite_phone', 'svg-sprite')
+                            span 0990957576
+            // / ======
+            // / HEADER
+            // / ======
+
+            // =====
+            // INTRO
+            // =====
+            .container
+                .intro
+                    .intro__content
+                        .intro__header Детская мебель
+                        .intro__subheader созданная для Вашего ребенка
+                        .intro__list
+                            ul.listim
+                                li.listim__item
+                                    .listim__icon
+                                        +svg-sprite('svgsprite_ruler', 'svg-sprite')
+                                    .listim__content
+                                        p.listim__title Подбираем размер
+                                        p.listim__desc под каждого маленького клиента
+                                li.listim__item
+                                    .listim__icon
+                                        +svg-sprite('svgsprite_chair', 'svg-sprite')
+                                    .listim__content
+                                        p.listim__title Вся мебель растет с малышом
+                                        p.listim__desc благодаря системе наращивания - от рождения до школы
+                                li.listim__item
+                                    .listim__icon
+                                        +svg-sprite('svgsprite_natural_food', 'svg-sprite')
+                                    .listim__content
+                                        p.listim__title Заботимся о здоровье Ваших детей
+                                        p.listim__desc натуральное дерево и итальянский цветной лак <br>на водной основе
+                        .intro__act
+                            .button-with-decor.c1
+                                button.button.button_a
+                                    span В магазин
+                    .intro__image
+                        img(src="img/intro.png", alt="")
+            // / =====
+            // / INTRO
+            // / =====
+
+            // =======
+            // МАГАЗИН
+            // =======
+            .container
+                .section
+                    h2.section-header Поздравляем - Вы нашли нас!
+                    p.section-subheader Нам часто пишут: «Отличная мебель, намного лучше чем мы купили. Как жаль, что не нашли вас раньше…» <br>Вам повезло больше - скорее выбирайте детишкам все, что нужно!
+                    .store
+                        .store__item
+                            a(href="").store__img
+                                i(style="background-image: url(img/store/1.png)")
+                            .store__content
+                                .store__main
+                                    span.store__name Стульчик
+                                    span.store__price
+                                        span 500
+                                        span ₴
+                                .store__acts
+                                    a(href="").store__props Характеристики
+                                    button.button.button_b
+                                        span Выбрать цвет
+                        .store__item
+                            a(href="").store__img
+                                i(style="background-image: url(img/store/1.png)")
+                            .store__content
+                                .store__main
+                                    span.store__name Стульчик
+                                    span.store__price
+                                        span 500
+                                        span ₴
+                                .store__acts
+                                    a(href="").store__props Характеристики
+                                    button.button.button_b
+                                        span Выбрать цвет
+                        .store__item
+                            a(href="").store__img
+                                i(style="background-image: url(img/store/1.png)")
+                            .store__content
+                                .store__main
+                                    span.store__name Стульчик
+                                    span.store__price
+                                        span 500
+                                        span ₴
+                                .store__acts
+                                    a(href="").store__props Характеристики
+                                    button.button.button_b
+                                        span Выбрать цвет
+                        .store__item
+                            a(href="").store__img
+                                i(style="background-image: url(img/store/1.png)")
+                            .store__content
+                                .store__main
+                                    span.store__name Стульчик
+                                    span.store__price
+                                        span 500
+                                        span ₴
+                                .store__acts
+                                    a(href="").store__props Характеристики
+                                    button.button.button_b
+                                        span Выбрать цвет
+                        .store__item
+                            a(href="").store__img
+                                i(style="background-image: url(img/store/1.png)")
+                            .store__content
+                                .store__main
+                                    span.store__name Стульчик
+                                    span.store__price
+                                        span 500
+                                        span ₴
+                                .store__acts
+                                    a(href="").store__props Характеристики
+                                    button.button.button_b
+                                        span Выбрать цвет
+            // / =======
+            // / МАГАЗИН
+            // / =======
+
+            // ===========
+            // ПРЕДЛОЖЕНИЕ
+            // ===========
+            .container
+                .promo
+                    .promo__img
+                        img(src="img/clg2.png", alt="").clg1
+                    .promo__content
+                        h1.promo__header Создайте эксклюзивный набор!
+                        p.promo__p2 Мы воплотим наборчик Вашей мечты в реальность. Наши специалисты изготовят столик по заданным размерам и пожеланиям.
+                        p.promo__p1 А художник сделает на наборчике любой рисунок по Вашему эскизу.
+                        .promo__acts
+                            .button-with-decor.c2
+                                button.button.button_c
+                                    span Рассчитать стоимость
+                            .promo__msg
+                                a(href="")
+                                    +svg-sprite('svgsprite_viber', 'svg-sprite')
+                                a(href="")
+                                    +svg-sprite('svgsprite_telegram', 'svg-sprite')
+            // / ===========
+            // / ПРЕДЛОЖЕНИЕ
+            // / ===========
+
+            // ========
+            // 5 ПРИЧИН
+            // ========
+            .container
+                .section
+                    h2.section-header 5 причин подарить ребенку <br>мебель от 
+                        img(src="img/logo-in-text.png", alt="")
+                    p.section-subheader Мы предусмотрели все, чтобы изделия служили по 4-5 лет - <br>а Вы не покупали каждый год новые
+                    .cwi
+                        .cwi__content
+                            ul.listim
+                                li.listim__item
+                                    .listim__icon 1
+                                    .listim__content
+                                        p.listim__title Выдержит даже медведя
+                                        p.listim__desc Хоть и маленького. Стул из массива дерева на итальянском клее класса Д4 выдерживает вес до 100 кг
+                                li.listim__item
+                                    .listim__icon 2
+                                    .listim__content
+                                        p.listim__title Система «Растущий стул»
+                                        p.listim__desc Наши изделия станут помощниками Ваших детей от рождения до средней школы
+                                li.listim__item
+                                    .listim__icon 3
+                                    .listim__content
+                                        p.listim__title Доводим до идеала
+                                        p.listim__desc Если не подошла высота, товар повредили при доставке или еще что-то - устраняем все бесплатно
+                                li.listim__item
+                                    .listim__icon 4
+                                    .listim__content
+                                        p.listim__title 100% безопасность
+                                        p.listim__desc Без вредных примесей,  натуральное дерево и импортная краска
+                                li.listim__item
+                                    .listim__icon 5
+                                    .listim__content
+                                        p.listim__title Гарантия 5 лет
+                                        p.listim__desc На аналоги в основном гарантия всего 6-12 месяцев. Мы настолько уверены в качестве изделий, что даем гарантию 5 лет!
+                        .cwi__image
+                            img(src="img/224.png", alt="")
+            // / ========
+            // / 5 ПРИЧИН
+            // / ========
+
+            // ===========
+            // ПРЕДЛОЖЕНИЕ
+            // ===========
+            .container
+                .promo
+                    .promo__img
+                        img(src="img/clg1.png", alt="").clg2
+                    .promo__content
+                        h1.promo__header А главное - за 5 лет <br>мы устанили все недочеты
+                        p.promo__p1 и создали идеальный стульчик и идеальный столик
+                        ul.listcheck
+                            li стульчик с поручнями специально разработан для деток, которые только учатся сидеть
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                            li знаем, как правильно рассчитать высоту ножек под рост ребенка
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                            li заокругленные углы для комфортного и безопасного использования
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                        p.promo__p1 Только благодаря отзывам и советам родителей, наша мебель - комфортная, безопасная и надежная!
+                        .promo__acts
+                            .button-with-decor.c2
+                                button.button.button_c
+                                    span Рассчитать стоимость
+                            .promo__msg
+                                a(href="")
+                                    +svg-sprite('svgsprite_viber', 'svg-sprite')
+                                a(href="")
+                                    +svg-sprite('svgsprite_telegram', 'svg-sprite')
+            // / ===========
+            // / ПРЕДЛОЖЕНИЕ
+            // / ===========
+
+            // =========
+            // ЭКСКУРСИЯ
+            // =========
+            .container
+                .section
+                    h2.section-header Хотите заглянуть в мастерскую <br>детского счастья?
+                    .section-subheader-nav
+                        p.section-subheader Специально для Вас - мини-экскурсия на наше производство
+                        .slnav
+                            button.slarrow.slarrow_prev#excursion-slider-prev
+                            .slpag#excursion-slider-pagination
+                                span
+                                span
+                                span
+                            button.slarrow.slarrow_next#excursion-slider-next
+                    .excursion
+                        .swiper-container#excursion-slider
+                            .swiper-wrapper
+                                .swiper-slide
+                                    a(href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)").excursion__item 
+                                .swiper-slide
+                                    a(href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)").excursion__item 
+            // / =========
+            // / ЭКСКУРСИЯ
+            // / =========
+
+            // ======
+            // ОТЗЫВЫ
+            // ======
+            .container
+                .section
+                    h2.section-header Не верите? <br>Прислушайтесь к нашим экспертам
+                    p.section-subheader Получать такие фото от покупателей - вот зачем мы все это начинали
+                    .reviews
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                    .reviews.reviews_hidden
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                        a(href="").reviews__item(style="background-image: url(img/IMG_3354.png)")
+                    .reviews__all
+                        button.button.button_c#show-all-reviews Показать всё
+            // / ======
+            // / ОТЗЫВЫ
+            // / ======
+
+            // ===========
+            // ПРЕДЛОЖЕНИЕ
+            // ===========
+            .container
+                .promo.promo_mbn
+                    .promo__img
+                        img(src="img/clg3.png", alt="").clg3
+                    .promo__content
+                        h1.promo__header Подарите своему <br>ребенку StoliK
+                        p.promo__p1 Как Вы уже знаете, наша мебель:
+                        ul.listcheck
+                            li крепкая, выдерживает до 100 кг
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                            li безопасная, не содержит вредных веществ
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                            li удобная, конструкция совершенствовалась годами
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                            li с системой наращивания
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                            li с вырезом на спинке стульчика под заказ
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                            li за разумные деньги, как для такого качества
+                                +svg-sprite('svgsprite_checkedm', 'svg-sprite')
+                        p.promo__p1 Это ведь то, что Вы искали, верно? Оформите заказ и уже через 2 дня Ваш малыш будет сиять от радости!
+                        .promo__acts
+                            button.button.button_c
+                                span Задать вопрос
+                            button.button.button_a
+                                span Вернуться в магазин
+                                
+            // / ===========
+            // / ПРЕДЛОЖЕНИЕ
+            // / ===========
+
+
+            // ======
+            // FOOTER
+            // ======
+            footer.footer
+                .container.footer__content
+                    .footer__copy ©2020. StoliK. Все права защищены. <br>Разработка: 
+                        a(href="tkachuk.pro") tkachuk.pro
+                    .footer__msg
+                        a(href="")
+                            +svg-sprite('svgsprite_viber', 'svg-sprite')
+                        a(href="")
+                            +svg-sprite('svgsprite_telegram', 'svg-sprite')
+                        a(href="")
+                            +svg-sprite('svgsprite_instagram', 'svg-sprite')
+                    .footer__phones
+                        a(href="tel:0983773747")
+                            +svg-sprite('svgsprite_phone', 'svg-sprite')
+                            span 0983773747
+                        a(href="tel:0983773747")
+                            +svg-sprite('svgsprite_phone', 'svg-sprite')
+                            span 0990957576
+            // / ======
+            // / FOOTER
+            // / ======
+
+            // ========
+            // ГРАДИЕНТ
+            // ========
+            <svg width="100" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg" style="position: absolute; opacity: 0; z-index: -1; left: -999999px"><style type="text/css">rect{fill:url(#maingradient)}</style><defs><linearGradient id="maingradient" gradientTransform="rotate(130)"><stop offset="0%" stop-color="#ea6bd1" /><stop offset="100%" stop-color="#fee0f4" /></linearGradient></defs>                <rect width="100" height="50"/></svg>
+            // / ========
+            // / ГРАДИЕНТ
+            // / ========
+
+            script(src="js/main.js")

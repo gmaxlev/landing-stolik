@@ -1,0 +1,20 @@
+@keyframes input-form-error-show {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+div.input-form-error {
+  margin-bottom: 10px;
+  animation: input-form-error-show 1s;
+  color: red;
+}
+
+input.input-form-error {
+  border-color: red;
+}

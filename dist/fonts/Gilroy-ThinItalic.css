@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Gilroy Thin Italic";
+    src: url("../fonts/Gilroy-ThinItalic.eot"); /* IE9 */
+    src: url("../fonts/Gilroy-ThinItalic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/Gilroy-ThinItalic.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/Gilroy-ThinItalic.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../fonts/Gilroy-ThinItalic.svg#Gilroy Thin Italic") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+

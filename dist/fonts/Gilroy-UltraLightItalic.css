@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Gilroy UltraLight Italic";
+    src: url("../fonts/Gilroy-UltraLightItalic.eot"); /* IE9 */
+    src: url("../fonts/Gilroy-UltraLightItalic.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/Gilroy-UltraLightItalic.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/Gilroy-UltraLightItalic.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url("../fonts/Gilroy-UltraLightItalic.svg#Gilroy UltraLight Italic") format("svg"); /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+

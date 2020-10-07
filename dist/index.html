@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Title</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="vendor/fancybox/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="vendor/swiper/swiper.min.css" />
+    <script src="vendor/jquery.min.js"></script>
+    <script src="vendor/jquery.validate.min.js"></script>
+    <script src="vendor/axios.min.js"></script>
+    <script src="vendor/jquery.mask.min.js"></script>
+    <script src="vendor/wow.min.js"></script>
+    <script src="vendor/fancybox/jquery.fancybox.min.js"></script>
+    <script src="vendor/swiper/swiper.min.js"></script><!-- ===================-->
+    <!-- LOADING SVG SPRITES-->
+    <!-- ===================-->
+    <script>
+        $(document).ready(function() {
+            var req = new XMLHttpRequest();
+            req.onload = function(e) {
+                var svg = document.implementation.createHTMLDocument('');
+                svg.body.innerHTML = e.target.response.replace('<svg ', '<svg style="display: none"');
+                document.body.appendChild(svg.body.firstElementChild);
+                svg = null;
+            };
+            req.open('GET', './img/sprite.defs.svg', true);
+            req.responseType = 'text';
+            req.send();
+        });
+    </script><!-- =======================-->
+    <!-- END LOADING SVG SPRITES-->
+    <!-- =======================-->
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- =================-->
+        <!-- МОДАЛЬНАЯ ФОРМА 1-->
+        <!-- =================-->
+        <div class="modal" data-is-modal="data-is-modal" id="modal-1">
+            <div class="modal__window">
+                <div class="modal__content">
+                    <div class="modal-window">
+                        <div class="modal-window__header">Заполните форму</div>
+                        <div class="modal-window__subheader">Мы свяжемся с вами в ближайшее время</div>
+                        <form class="modal-form" data-form-type="1" name="Форма №1">
+                            <div class="modal-form__input">
+                                <div class="input-text"><input type="text" name="name" placeholder="Ваше имя" /></div>
+                            </div>
+                            <div class="modal-form__input">
+                                <div class="input-text"><input class="phone-mask" type="text" name="phone" placeholder="Ваш номер телефона" /></div>
+                            </div>
+                            <div class="modal-form__input">
+                                <div class="input-text"><input type="text" name="email" placeholder="Ваш e-mail" /></div>
+                            </div>
+                            <div class="modal-form__act"><button class="button">Зарегистрироваться</button></div>
+                            <div class="form-send-error"><svg class="svg-sprite">
+                                    <use xlink:href="#svgsprite_error"></use>
+                                </svg><span>Ошибка. Не удалось отправить данные. <br><span class="form-send-error__text"></span></span></div>
+                            <div class="form-send-success"><svg class="svg-sprite">
+                                    <use xlink:href="#svgsprite_phone"></use>
+                                </svg><span>Спасибо!<br> Ожидайте наш звонок.</span>
+                                <div class="form-send-success__params"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-window__close" data-modal-close="data-modal-close"><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_close"></use>
+                        </svg></div>
+                </div>
+            </div>
+        </div><!-- =====================-->
+        <!-- END МОДАЛЬНАЯ ФОРМА 2-->
+        <!-- =====================-->
+        <!-- ======-->
+        <!-- HEADER-->
+        <!-- ======-->
+        <div class="container">
+            <div class="header">
+                <div class="header__logo"><img src="img/logo.png" alt="" /></div>
+                <div class="header__msg"><a href=""><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_viber"></use>
+                        </svg></a><a href=""><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_telegram"></use>
+                        </svg></a><a href=""><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_instagram"></use>
+                        </svg></a></div>
+                <div class="header__phones"><a href="tel:0983773747"><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_phone"></use>
+                        </svg><span>0983773747</span></a><a href="tel:0983773747"><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_phone"></use>
+                        </svg><span>0990957576</span></a></div>
+            </div>
+        </div><!-- / ======-->
+        <!-- / HEADER-->
+        <!-- / ======-->
+        <!-- =====-->
+        <!-- INTRO-->
+        <!-- =====-->
+        <div class="container">
+            <div class="intro">
+                <div class="intro__content">
+                    <div class="intro__header">Детская мебель</div>
+                    <div class="intro__subheader">созданная для Вашего ребенка</div>
+                    <div class="intro__list">
+                        <ul class="listim">
+                            <li class="listim__item">
+                                <div class="listim__icon"><svg class="svg-sprite">
+                                        <use xlink:href="#svgsprite_ruler"></use>
+                                    </svg></div>
+                                <div class="listim__content">
+                                    <p class="listim__title">Подбираем размер</p>
+                                    <p class="listim__desc">под каждого маленького клиента</p>
+                                </div>
+                            </li>
+                            <li class="listim__item">
+                                <div class="listim__icon"><svg class="svg-sprite">
+                                        <use xlink:href="#svgsprite_chair"></use>
+                                    </svg></div>
+                                <div class="listim__content">
+                                    <p class="listim__title">Вся мебель растет с малышом</p>
+                                    <p class="listim__desc">благодаря системе наращивания - от рождения до школы</p>
+                                </div>
+                            </li>
+                            <li class="listim__item">
+                                <div class="listim__icon"><svg class="svg-sprite">
+                                        <use xlink:href="#svgsprite_natural_food"></use>
+                                    </svg></div>
+                                <div class="listim__content">
+                                    <p class="listim__title">Заботимся о здоровье Ваших детей</p>
+                                    <p class="listim__desc">натуральное дерево и итальянский цветной лак <br>на водной основе</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="intro__act">
+                        <div class="button-with-decor c1"><button class="button button_a"><span>В магазин</span></button></div>
+                    </div>
+                </div>
+                <div class="intro__image"><img src="img/intro.png" alt="" /></div>
+            </div>
+        </div><!-- / =====-->
+        <!-- / INTRO-->
+        <!-- / =====-->
+        <!-- =======-->
+        <!-- МАГАЗИН-->
+        <!-- =======-->
+        <div class="container">
+            <div class="section">
+                <h2 class="section-header">Поздравляем - Вы нашли нас!</h2>
+                <p class="section-subheader">Нам часто пишут: «Отличная мебель, намного лучше чем мы купили. Как жаль, что не нашли вас раньше…» <br>Вам повезло больше - скорее выбирайте детишкам все, что нужно!</p>
+                <div class="store">
+                    <div class="store__item"><a class="store__img" href=""><i style="background-image: url(img/store/1.png)"></i></a>
+                        <div class="store__content">
+                            <div class="store__main"><span class="store__name">Стульчик</span><span class="store__price"><span>500</span><span>₴</span></span></div>
+                            <div class="store__acts"><a class="store__props" href="">Характеристики</a><button class="button button_b"><span>Выбрать цвет</span></button></div>
+                        </div>
+                    </div>
+                    <div class="store__item"><a class="store__img" href=""><i style="background-image: url(img/store/1.png)"></i></a>
+                        <div class="store__content">
+                            <div class="store__main"><span class="store__name">Стульчик</span><span class="store__price"><span>500</span><span>₴</span></span></div>
+                            <div class="store__acts"><a class="store__props" href="">Характеристики</a><button class="button button_b"><span>Выбрать цвет</span></button></div>
+                        </div>
+                    </div>
+                    <div class="store__item"><a class="store__img" href=""><i style="background-image: url(img/store/1.png)"></i></a>
+                        <div class="store__content">
+                            <div class="store__main"><span class="store__name">Стульчик</span><span class="store__price"><span>500</span><span>₴</span></span></div>
+                            <div class="store__acts"><a class="store__props" href="">Характеристики</a><button class="button button_b"><span>Выбрать цвет</span></button></div>
+                        </div>
+                    </div>
+                    <div class="store__item"><a class="store__img" href=""><i style="background-image: url(img/store/1.png)"></i></a>
+                        <div class="store__content">
+                            <div class="store__main"><span class="store__name">Стульчик</span><span class="store__price"><span>500</span><span>₴</span></span></div>
+                            <div class="store__acts"><a class="store__props" href="">Характеристики</a><button class="button button_b"><span>Выбрать цвет</span></button></div>
+                        </div>
+                    </div>
+                    <div class="store__item"><a class="store__img" href=""><i style="background-image: url(img/store/1.png)"></i></a>
+                        <div class="store__content">
+                            <div class="store__main"><span class="store__name">Стульчик</span><span class="store__price"><span>500</span><span>₴</span></span></div>
+                            <div class="store__acts"><a class="store__props" href="">Характеристики</a><button class="button button_b"><span>Выбрать цвет</span></button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- / =======-->
+        <!-- / МАГАЗИН-->
+        <!-- / =======-->
+        <!-- ===========-->
+        <!-- ПРЕДЛОЖЕНИЕ-->
+        <!-- ===========-->
+        <div class="container">
+            <div class="promo">
+                <div class="promo__img"><img class="clg1" src="img/clg2.png" alt="" /></div>
+                <div class="promo__content">
+                    <h1 class="promo__header">Создайте эксклюзивный набор!</h1>
+                    <p class="promo__p2">Мы воплотим наборчик Вашей мечты в реальность. Наши специалисты изготовят столик по заданным размерам и пожеланиям.</p>
+                    <p class="promo__p1">А художник сделает на наборчике любой рисунок по Вашему эскизу.</p>
+                    <div class="promo__acts">
+                        <div class="button-with-decor c2"><button class="button button_c"><span>Рассчитать стоимость</span></button></div>
+                        <div class="promo__msg"><a href=""><svg class="svg-sprite">
+                                    <use xlink:href="#svgsprite_viber"></use>
+                                </svg></a><a href=""><svg class="svg-sprite">
+                                    <use xlink:href="#svgsprite_telegram"></use>
+                                </svg></a></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- / ===========-->
+        <!-- / ПРЕДЛОЖЕНИЕ-->
+        <!-- / ===========-->
+        <!-- ========-->
+        <!-- 5 ПРИЧИН-->
+        <!-- ========-->
+        <div class="container">
+            <div class="section">
+                <h2 class="section-header">5 причин подарить ребенку <br>мебель от <img src="img/logo-in-text.png" alt="" /></h2>
+                <p class="section-subheader">Мы предусмотрели все, чтобы изделия служили по 4-5 лет - <br>а Вы не покупали каждый год новые</p>
+                <div class="cwi">
+                    <div class="cwi__content">
+                        <ul class="listim">
+                            <li class="listim__item">
+                                <div class="listim__icon">1</div>
+                                <div class="listim__content">
+                                    <p class="listim__title">Выдержит даже медведя</p>
+                                    <p class="listim__desc">Хоть и маленького. Стул из массива дерева на итальянском клее класса Д4 выдерживает вес до 100 кг</p>
+                                </div>
+                            </li>
+                            <li class="listim__item">
+                                <div class="listim__icon">2</div>
+                                <div class="listim__content">
+                                    <p class="listim__title">Система «Растущий стул»</p>
+                                    <p class="listim__desc">Наши изделия станут помощниками Ваших детей от рождения до средней школы</p>
+                                </div>
+                            </li>
+                            <li class="listim__item">
+                                <div class="listim__icon">3</div>
+                                <div class="listim__content">
+                                    <p class="listim__title">Доводим до идеала</p>
+                                    <p class="listim__desc">Если не подошла высота, товар повредили при доставке или еще что-то - устраняем все бесплатно</p>
+                                </div>
+                            </li>
+                            <li class="listim__item">
+                                <div class="listim__icon">4</div>
+                                <div class="listim__content">
+                                    <p class="listim__title">100% безопасность</p>
+                                    <p class="listim__desc">Без вредных примесей, натуральное дерево и импортная краска</p>
+                                </div>
+                            </li>
+                            <li class="listim__item">
+                                <div class="listim__icon">5</div>
+                                <div class="listim__content">
+                                    <p class="listim__title">Гарантия 5 лет</p>
+                                    <p class="listim__desc">На аналоги в основном гарантия всего 6-12 месяцев. Мы настолько уверены в качестве изделий, что даем гарантию 5 лет!</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cwi__image"><img src="img/224.png" alt="" /></div>
+                </div>
+            </div>
+        </div><!-- / ========-->
+        <!-- / 5 ПРИЧИН-->
+        <!-- / ========-->
+        <!-- ===========-->
+        <!-- ПРЕДЛОЖЕНИЕ-->
+        <!-- ===========-->
+        <div class="container">
+            <div class="promo">
+                <div class="promo__img"><img class="clg2" src="img/clg1.png" alt="" /></div>
+                <div class="promo__content">
+                    <h1 class="promo__header">А главное - за 5 лет <br>мы устанили все недочеты</h1>
+                    <p class="promo__p1">и создали идеальный стульчик и идеальный столик</p>
+                    <ul class="listcheck">
+                        <li>стульчик с поручнями специально разработан для деток, которые только учатся сидеть<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                        <li>знаем, как правильно рассчитать высоту ножек под рост ребенка<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                        <li>заокругленные углы для комфортного и безопасного использования<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                    </ul>
+                    <p class="promo__p1">Только благодаря отзывам и советам родителей, наша мебель - комфортная, безопасная и надежная!</p>
+                    <div class="promo__acts">
+                        <div class="button-with-decor c2"><button class="button button_c"><span>Рассчитать стоимость</span></button></div>
+                        <div class="promo__msg"><a href=""><svg class="svg-sprite">
+                                    <use xlink:href="#svgsprite_viber"></use>
+                                </svg></a><a href=""><svg class="svg-sprite">
+                                    <use xlink:href="#svgsprite_telegram"></use>
+                                </svg></a></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- / ===========-->
+        <!-- / ПРЕДЛОЖЕНИЕ-->
+        <!-- / ===========-->
+        <!-- =========-->
+        <!-- ЭКСКУРСИЯ-->
+        <!-- =========-->
+        <div class="container">
+            <div class="section">
+                <h2 class="section-header">Хотите заглянуть в мастерскую <br>детского счастья?</h2>
+                <div class="section-subheader-nav">
+                    <p class="section-subheader">Специально для Вас - мини-экскурсия на наше производство</p>
+                    <div class="slnav"><button class="slarrow slarrow_prev" id="excursion-slider-prev"></button>
+                        <div class="slpag" id="excursion-slider-pagination"><span></span><span></span><span></span></div><button class="slarrow slarrow_next" id="excursion-slider-next"></button>
+                    </div>
+                </div>
+                <div class="excursion">
+                    <div class="swiper-container" id="excursion-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_1903.png" data-fancybox="excursion" style="background-image: url(img/IMG_1903.png)"> </a></div>
+                            <div class="swiper-slide"><a class="excursion__item" href="img/IMG_3354.png" data-fancybox="excursion" style="background-image: url(img/IMG_3354.png)"> </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- / =========-->
+        <!-- / ЭКСКУРСИЯ-->
+        <!-- / =========-->
+        <!-- ======-->
+        <!-- ОТЗЫВЫ-->
+        <!-- ======-->
+        <div class="container">
+            <div class="section">
+                <h2 class="section-header">Не верите? <br>Прислушайтесь к нашим экспертам</h2>
+                <p class="section-subheader">Получать такие фото от покупателей - вот зачем мы все это начинали</p>
+                <div class="reviews"><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a></div>
+                <div class="reviews reviews_hidden"><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a><a class="reviews__item" href="" style="background-image: url(img/IMG_3354.png)"></a></div>
+                <div class="reviews__all"><button class="button button_c" id="show-all-reviews">Показать всё</button></div>
+            </div>
+        </div><!-- / ======-->
+        <!-- / ОТЗЫВЫ-->
+        <!-- / ======-->
+        <!-- ===========-->
+        <!-- ПРЕДЛОЖЕНИЕ-->
+        <!-- ===========-->
+        <div class="container">
+            <div class="promo promo_mbn">
+                <div class="promo__img"><img class="clg3" src="img/clg3.png" alt="" /></div>
+                <div class="promo__content">
+                    <h1 class="promo__header">Подарите своему <br>ребенку StoliK</h1>
+                    <p class="promo__p1">Как Вы уже знаете, наша мебель:</p>
+                    <ul class="listcheck">
+                        <li>крепкая, выдерживает до 100 кг<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                        <li>безопасная, не содержит вредных веществ<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                        <li>удобная, конструкция совершенствовалась годами<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                        <li>с системой наращивания<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                        <li>с вырезом на спинке стульчика под заказ<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                        <li>за разумные деньги, как для такого качества<svg class="svg-sprite">
+                                <use xlink:href="#svgsprite_checkedm"></use>
+                            </svg></li>
+                    </ul>
+                    <p class="promo__p1">Это ведь то, что Вы искали, верно? Оформите заказ и уже через 2 дня Ваш малыш будет сиять от радости!</p>
+                    <div class="promo__acts"><button class="button button_c"><span>Задать вопрос</span></button><button class="button button_a"><span>Вернуться в магазин</span></button></div>
+                </div>
+            </div>
+        </div><!-- / ===========-->
+        <!-- / ПРЕДЛОЖЕНИЕ-->
+        <!-- / ===========-->
+        <!-- ======-->
+        <!-- FOOTER-->
+        <!-- ======-->
+        <footer class="footer">
+            <div class="container footer__content">
+                <div class="footer__copy">©2020. StoliK. Все права защищены. <br>Разработка: <a href="tkachuk.pro">tkachuk.pro</a></div>
+                <div class="footer__msg"><a href=""><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_viber"></use>
+                        </svg></a><a href=""><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_telegram"></use>
+                        </svg></a><a href=""><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_instagram"></use>
+                        </svg></a></div>
+                <div class="footer__phones"><a href="tel:0983773747"><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_phone"></use>
+                        </svg><span>0983773747</span></a><a href="tel:0983773747"><svg class="svg-sprite">
+                            <use xlink:href="#svgsprite_phone"></use>
+                        </svg><span>0990957576</span></a></div>
+            </div>
+        </footer><!-- / ======-->
+        <!-- / FOOTER-->
+        <!-- / ======-->
+        <!-- ========-->
+        <!-- ГРАДИЕНТ-->
+        <!-- ========--><svg width="100" height="50" version="1.1" xmlns="http://www.w3.org/2000/svg" style="position: absolute; opacity: 0; z-index: -1; left: -999999px">
+            <style type="text/css">
+                rect {
+                    fill: url(#maingradient)
+                }
+            </style>
+            <defs>
+                <linearGradient id="maingradient" gradientTransform="rotate(130)">
+                    <stop offset="0%" stop-color="#ea6bd1" />
+                    <stop offset="100%" stop-color="#fee0f4" />
+                </linearGradient>
+            </defs>
+            <rect width="100" height="50" />
+        </svg><!-- / ========-->
+        <!-- / ГРАДИЕНТ-->
+        <!-- / ========-->
+        <script src="js/main.js"></script>
+    </div>
+</body>
+
+</html>
